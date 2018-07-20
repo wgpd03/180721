@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="jquery.js"></script>
+    </head>
+    <body>
+        <div id="playGround">
+            
+        </div>
+        
+        
+        <script>
+            function TimerP(parentObject, interval) {
+                var self = this;
+                this.p = $("<p></p>").text(interval);
+                this.interval = interval;
+                var timer = null;
+                $(parentObject).append(this.p);
+                this.start = function () {
+                    timer = setInterval(function () {
+                        self.p.text(Date());
+                    }, this.interval);
+                }
+                this.stop = function () {
+                    clearInterval(timer);
+                }
+            }
+            
+            
+            var newP = new TimerP(playGround, 1000);
+            newP.start();
+            
+            var newP2 = new TimerP(playGround, 2000);
+            newP2.start();
+            
+            
+            
+            
+        </script>
+        
+    </body>
+</html>
